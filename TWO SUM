@@ -1,0 +1,27 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        # Create a hashmap (dictionary)
+        # It will store: number -> index
+        seen = {}
+
+        # Loop through each element in the list
+        for i in range(len(nums)):
+
+            # Calculate the number we need to reach the target
+            # Example: target = 9, nums[i] = 2 → temp = 7
+            temp = target - nums[i]
+
+            # Check if this required number already exists in hashmap
+            if temp in seen:
+                # If yes, we found the answer
+                # Return index of temp (from hashmap) and current index
+                return [seen[temp], i]
+
+            # If not found, store current number with its index
+            # Example: seen[2] = 0
+            seen[nums[i]] = i
+
+        # If no solution found (just in case)
+        return [] 
+
+        #SOLVED IN O(n)
